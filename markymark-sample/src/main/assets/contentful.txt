@@ -1,5 +1,4 @@
 # Headers
-
 ---
 
 # H1
@@ -11,7 +10,6 @@
 ### __*bold & italic*__
 
 # Lists
-
 ---
 
 ## Ordered list
@@ -62,7 +60,6 @@
       2. Subnested ordered 2
 
 # Paragraphs
-
 ---
 
 ## Quotes
@@ -96,7 +93,6 @@ This is __bold__, this is *italic*, this is ~~striked out~~, this is everything 
 Special html symbols: `&euro; &copy;` become -> &euro; &copy;
 
 # Media
-
 ---
 
 ![800px-Android 5.0-en](https://images.contentful.com/7hqxd0h2npta/16JgtcyfEIeakoOqqKqiC/f80f6b559228a17c50ef52a064df047c/800px-Android_5.0-en.png)

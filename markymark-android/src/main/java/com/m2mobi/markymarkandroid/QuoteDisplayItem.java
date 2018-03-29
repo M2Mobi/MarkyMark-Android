@@ -31,7 +31,7 @@ public class QuoteDisplayItem implements DisplayItem<View, QuoteBlock, Spanned> 
 		TextView textView = new TextView(mContext, null, R.attr.MarkdownQuoteStyle);
 		final Spanned spanned = pInlineConverter.convert(pMarkdownItem.getContent());
 		final SpannableString spannableString = new SpannableString(spanned);
-		spannableString.setSpan(new QuoteSpan(), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+		spannableString.setSpan(new QuoteSpan(mContext.getResources().getColor(R.color.quote_color)), 0, spannableString.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 		textView.setText(spannableString);
 		return textView;
 	}
