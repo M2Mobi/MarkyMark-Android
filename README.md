@@ -27,7 +27,7 @@ Or use the provided [MarkyMarkView](markymark-android/src/main/java/com/m2mobi/m
 ```kotlin
 val markyMarkView = findViewById<MarkyMarkView>(R.id.markymarkview)
 markyMarkView.setMarkyMark(markyMark)
-markyMarkView.parseMarkdown("# Header\nParagraph etc")
+markyMarkView.setMarkdown("# Header\nParagraph etc")
 ```
 
 ## Styling
@@ -125,9 +125,9 @@ Create a `DisplayItem` that can handle your `NewMarkdownItem` and convert it int
 ```kotlin
 class NewDisplayItem(val context: Context) : DisplayItem<View, NewMarkdownItem, Spanned> {
 
-	override fun create(markDownItem: NewMarkdownItem, inlineConverter: InlineConverter<Spanned>) : View {
+	override fun create(markdownItem: NewMarkdownItem, inlineConverter: InlineConverter<Spanned>) : View {
 		return TextView(context).apply {
-			text = inlineConverter.convert(markDownItem.content)
+			text = inlineConverter.convert(markdownItem.content)
 		}
 	}
 }
@@ -143,17 +143,17 @@ viewConverter.addMapping(NewDisplayItem(themedContext))
 
 Create a `Rule` that recognizes your new item and creates a corresponding `MarkdownItem` for it.
 Most new rules will just be single line, like headers, in that case your new rule can just extend `RegexRule`.
-Return your regular expression `Pattern` in the `getRegex()` method and return your new `MarkdownItem` in the `toMarkdownItem(markDownLines: List<String>)`
+Return your regular expression `Pattern` in the `getRegex()` method and return your new `MarkdownItem` in the `toMarkdownItem(markdownLines: List<String>)`
 
 ```kotlin
 class NewRule : RegexRule {
 
 	override fun getRegex() : Pattern = Pattern.compile("some regex")
 	
-	override fun toMarkdownItem(markDownLines: List<String>) : MarkdownItem {
+	override fun toMarkdownItem(markdownLines: List<String>) : MarkdownItem {
 	    // In this case, since it is a single line rule
-	    // markDownLines will always be an list with one String
-	    return NewMarkdownItem(markDownLines.first())
+	    // markdownLines will always be an list with one String
+	    return NewMarkdownItem(markdownLines.first())
 	}
 }
 ```
@@ -212,12 +212,12 @@ class NewRule : Rule {
     
     override fun getLinesConsumed(): Int = lines
 
-    override fun conforms(markDownLines: MutableList<String>): Boolean {
-        if (!startPattern.matcher(markDownLines.first()).matches()) {
+    override fun conforms(markdownLines: MutableList<String>): Boolean {
+        if (!startPattern.matcher(markdownLines.first()).matches()) {
             return false
         }
         lines = 0
-        for (line in markDownLines) {
+        for (line in markdownLines) {
             lines += 1
             if (endPattern.matcher(line).matches()) {
                 return true
@@ -226,7 +226,7 @@ class NewRule : Rule {
         return false
     }
 
-    override fun toMarkdownItem(markDownLines: MutableList<String>): MarkdownItem = SomeMarkdownItem()
+    override fun toMarkdownItem(markdownLines: MutableList<String>): MarkdownItem = SomeMarkdownItem()
 }
 ```
 
@@ -256,7 +256,7 @@ For inline Markdown, instead of extending `DisplayItem<View, Foo, Spanned>` you'
 ```kotlin
 class PercentInlineDisplayItem : InlineDisplayItem<Spanned, PercentString> {
 
-    override fun create(inlineConverter: InlineConverter<Spanned>, markDownString: PercentString): Spanned {
+    override fun create(inlineConverter: InlineConverter<Spanned>, markdownString: PercentString): Spanned {
         // return your Spannable String here
     }
 }

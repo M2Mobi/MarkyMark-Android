@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size
+                android:width="@dimen/list_indicator_size"
+                android:height="@dimen/list_indicator_size" />
+        </shape>
+    </item>
+    <item android:gravity="center">
+        <shape xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
 
-    <solid android:color="@color/list_indicator_color" />
+            <solid android:color="@color/list_indicator_color" />
 
-    <size
-        android:width="@dimen/list_indicator_size"
-        android:height="@dimen/list_indicator_stroke_width" />
-</shape>
+            <size
+                android:width="@dimen/list_indicator_size"
+                android:height="@dimen/list_indicator_stroke_width" />
+        </shape>
+    </item>
+</layer-list>

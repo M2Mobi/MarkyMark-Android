@@ -23,12 +23,12 @@ class MainActivity : AppCompatActivity() {
         val markyMark = MarkyMarkAndroid.getMarkyMark(this, ContentfulFlavor(), PicassoImageLoader(this))
         markyMarkView.setMarkyMark(markyMark)
 
-        val markDown = loadMarkDownFromAsset(this, "contentful.txt")
+        val markdown = loadMarkdownFromAsset(this, "contentful.txt")
 
-        markyMarkView.setMarkDown(markDown)
+        markyMarkView.setMarkdown(markdown)
     }
 
-    private fun loadMarkDownFromAsset(pContext: Context, pFileName: String): String {
+    private fun loadMarkdownFromAsset(pContext: Context, pFileName: String): String {
         return pContext.assets.open(pFileName).bufferedReader().use(BufferedReader::readText)
     }
 }

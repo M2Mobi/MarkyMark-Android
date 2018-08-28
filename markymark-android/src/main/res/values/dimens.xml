@@ -2,6 +2,5 @@
 <resources>
     <dimen name="list_indicator_size">5dp</dimen>
     <dimen name="list_indicator_stroke_width">1dp</dimen>
-    <dimen name="list_indentation_spacing">16dp</dimen>
-    <dimen name="list_indicator_spacing">8dp</dimen>
+    <dimen name="list_margin">24dp</dimen>
 </resources>
