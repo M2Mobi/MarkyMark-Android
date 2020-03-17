@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+group='com.github.M2Mobi'
+
+android {
+    compileSdkVersion target_sdk_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility jvm_version
+        targetCompatibility jvm_version
+    }
+
+    kotlinOptions {
+        jvmTarget = jvm_version.toString()
+    }
+}
+
+dependencies {
+    api project(':common')
+
+    implementation libraries.kotlin_core
+    implementation libraries.android_core
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+
+    testImplementation libraries.testing
+    testImplementation libraries.android_testing
+}
