@@ -21,18 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package com.m2mobi.markymark.core.interpreter.display
 
-import com.m2mobi.markymark.core.interpreter.Interpreter
+package com.m2mobi.markymark.core.backend
+
+import com.m2mobi.markymark.core.frontend.Parser
 import com.m2mobi.markymark.core.model.Block
 import com.m2mobi.markymark.core.model.Formatting
-import com.m2mobi.markymark.core.model.Styling
 
 /**
- * Basic definition of a Builder. A Builder is responsible for the conversion of a [Block] into items that can be
- * displayed by a UI/GUI/View.
+ * Basic definition of an Interpreter. An Interpreter is responsible for converting the intermediary representations
+ * (i.e. [Block] and [Formatting]) into end products that can be displayed by a UI/GUI/View.
+ *
+ * The Interpreter can be seen as the frontend equivalent of the [Parser].
  */
-interface Builder<T, B : Block, I> {
+interface Interpreter<T, R> {
 
-    fun create(block: B, formattingInterpreter: Interpreter<Formatting<Styling>, I>): T
+    fun interpret(model: T): R
 }

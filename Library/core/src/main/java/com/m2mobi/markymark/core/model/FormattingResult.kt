@@ -26,10 +26,9 @@ package com.m2mobi.markymark.core.model
 
 /**
  * Result of a [Formatting] parsing operation. Unlike with [BlockResult] this always represents a successful parsing.
- * Text is still perfectly valid without any formatting.
  */
 data class FormattingResult(
     val formatting: Formatting<Styling>,
-    val prefixLength: Int,
-    val suffixLength: Int
+    val prefix: String,
+    val suffix: String
 )

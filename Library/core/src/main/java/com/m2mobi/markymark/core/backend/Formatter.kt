@@ -22,19 +22,16 @@
  * SOFTWARE.
  */
 
-package com.m2mobi.markymark.core.interpreter
+package com.m2mobi.markymark.core.backend
 
-import com.m2mobi.markymark.core.model.Block
+import com.m2mobi.markymark.core.model.Formatting
 import com.m2mobi.markymark.core.model.Styling
-import com.m2mobi.markymark.core.parser.Parser
 
 /**
- * Basic definition of an Interpreter. An Interpreter is responsible for converting the intermediary representations
- * (i.e. [Block] and [Styling]) into end products that can be displayed by a UI/GUI/View.
- *
- * The Interpreter can be seen as the output equivalent of the [Parser].
+ * Basic definition of a [Formatter]. A [Formatter] is responsible for the conversion of a [Styling] into an object
+ * that can be displayed by a UI/GUI/View.
  */
-interface Interpreter<T, R> {
+interface Formatter<T : Styling, R> {
 
-    fun interpret(model: T): R
+    fun create(model: Formatting<T>): R
 }

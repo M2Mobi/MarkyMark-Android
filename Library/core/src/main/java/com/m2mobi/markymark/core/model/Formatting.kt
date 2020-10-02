@@ -24,7 +24,7 @@
 
 package com.m2mobi.markymark.core.model
 
-data class Formatting<T : Styling>(
+data class Formatting<out T : Styling>(
     val range: IntRange,
     val styling: T
 )

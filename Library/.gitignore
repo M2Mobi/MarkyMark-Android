@@ -1,8 +1,10 @@
 .gradle
 .settings/
+.idea/dictionaries
+.idea/codeStyles
 .idea/caches
 .idea/libraries
-.idea/dictionaries
+.idea/modules
 .idea/*.xml
 *.iml
 bin/

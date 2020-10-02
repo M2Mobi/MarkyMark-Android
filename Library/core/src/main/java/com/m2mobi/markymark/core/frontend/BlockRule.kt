@@ -22,11 +22,10 @@
  * SOFTWARE.
  */
 
-package com.m2mobi.markymark.core.parser.rule
+package com.m2mobi.markymark.core.frontend
 
 import com.m2mobi.markymark.core.model.BlockResult
 import com.m2mobi.markymark.core.model.FormattedText
-import com.m2mobi.markymark.core.parser.Parser
 
 /**
  * Representation of a parsing rule for a markdown element.

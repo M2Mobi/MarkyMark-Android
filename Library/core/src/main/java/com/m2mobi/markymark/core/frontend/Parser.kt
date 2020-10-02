@@ -22,17 +22,13 @@
  * SOFTWARE.
  */
 
-package com.m2mobi.markymark.core
-
-import com.m2mobi.markymark.core.parser.rule.BlockRule
-import com.m2mobi.markymark.core.parser.rule.FormattingRule
+package com.m2mobi.markymark.core.frontend
 
 /**
- * Representation of a markdown flavor and the parsing rules it accepts.
+ * The idea of the [Parser] concept is that it generalizes the act of transforming a bit of "text" (referring to both
+ * the singular and plural version of the word) into an intermediary representation ([T]).
  */
-interface Flavor {
+interface Parser<T> {
 
-    val blockRules: List<BlockRule>
-    val defaultBlockRule: BlockRule
-    val formattingRules: List<FormattingRule>
+    fun parse(text: String): T
 }

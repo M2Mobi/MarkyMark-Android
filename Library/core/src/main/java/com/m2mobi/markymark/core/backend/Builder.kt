@@ -21,14 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.m2mobi.markymark.core.backend
 
-package com.m2mobi.markymark.core.parser
+import com.m2mobi.markymark.core.model.Block
+import com.m2mobi.markymark.core.model.Formatting
 
 /**
- * The idea of the [Parser] concept is that it generalizes the act of transforming a bit of "text" (referring to both
- * the singular and plural version of the word) into an intermediary representation ([T]).
+ * Basic definition of a Builder. A Builder is responsible for the conversion of a [Block] into items that can be
+ * displayed by a UI/GUI/View.
  */
-interface Parser<T> {
+interface Builder<B : Block, I, R> {
 
-    fun parse(text: String): T
+    fun create(block: B, formattingInterpreter: Interpreter<Formatting<*>, I>): R
 }

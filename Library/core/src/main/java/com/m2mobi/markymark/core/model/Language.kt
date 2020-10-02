@@ -22,15 +22,17 @@
  * SOFTWARE.
  */
 
-package com.m2mobi.markymark.core.interpreter.display
+package com.m2mobi.markymark.core.model
 
-import com.m2mobi.markymark.core.model.Styling
+import com.m2mobi.markymark.core.frontend.BlockRule
+import com.m2mobi.markymark.core.frontend.FormattingRule
 
 /**
- * Basic definition of a [Formatter]. A [Formatter] is responsible for the conversion of a [Styling] into an object
- * that can be displayed by a UI/GUI/View.
+ * Representation of a markup language. A language defines what syntax is accepted as valid.
  */
-interface Formatter<T : Styling, R> {
+abstract class Language {
 
-    fun create(model: T): R
+    abstract val blockRules: List<BlockRule>
+    abstract val defaultBlockRule: BlockRule
+    abstract val formattingRules: List<FormattingRule>
 }
